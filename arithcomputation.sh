@@ -28,3 +28,18 @@ do
 		fi
 	done
 done
+
+
+
+for (( i=0; i<3; i++ ))
+do
+	for (( j=0; j<3-i-1; j++ ))
+	do
+		if [ ${codes[$j]} -gt ${codes[$(( j+1 ))]} ]
+		then
+			temp=${codes[$j]}
+			codes[$j]=${codes[$(( j+1 ))]}
+			codes[$(( j+1 ))]=$temp
+		fi
+	done
+done
