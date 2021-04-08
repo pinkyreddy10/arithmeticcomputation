@@ -15,3 +15,16 @@ for key in ${!dict[@]}
 do
 	echo $key ${codes[${dict[$key]}]}
 done
+
+for (( i=0; i<3; i++ ))
+do
+	for (( j=$i; j<3; j++ ))
+	do
+		if [ ${codes[$i]} -lt ${codes[$j]} ]
+		then
+			temp=${codes[$i]}
+			codes[$i]=${codes[$j]}
+			codes[$j]=$temp
+		fi
+	done
+done
